@@ -1,0 +1,14 @@
+version: '3'
+services:
+  hyperglass:
+    build: .
+    ports:
+     - "8080:80"
+    volumes:
+      - ./config:/etc/hyperglass
+    environment:
+      - HYPERGLASS_UI_BUILD_TIMEOUT=300
+    restart: always
+  redis:
+    image: "redis:alpine"
+    restart: always
